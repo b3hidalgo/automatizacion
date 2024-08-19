@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>BiblioWeb</title>
+    <!-- CSS -->
+    <link href="/frontend/static/css/styles.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">   
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="/frontend/static/assets/favicon.ico" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Font Awesome (Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body style="background-color: rgb(0, 0, 0);">
+    
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                
+                <!-- Solo si es super.usuario -->
+                <ul style="margin-right: -250px; margin-left: 50px;" class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold fs-4" href="/frontend/templates/admin/adminhome.html">Administración</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold fs-4" aria-current="page" href="/frontend/templates/home_page_auth.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold fs-4" href="/frontend/templates/catalogue_auth.html">Catálogo</a>
+                    </li>
+                    <li style="margin-left: 10px;" class="nav-item position-relative">
+                        <a class="nav-link fw-bold active fs-4 position-relative" href="/frontend/templates/cart.html">
+                            <p id="cart-total" class="position-absolute top-2 start-1 translate-middle badge rounded-pill bg-danger"></p>
+                            <i class="fas fa-shopping-cart cart-icon"></i> Carrito de Compra
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold fs-4" id="logout-link" href="/frontend/templates/signin.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Content -->
+    <div class="container-md" id="infobook" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="box-element" id="form-wrapper">
+                    <form id="form">
+                        <div id="user-info">
+                            <br>
+                            <h3>Contacto:</h3>
+                            <hr>
+                            <div class="form-field">
+                                <input required class="form-control" type="number" name="telefono" placeholder="Telefono..">
+                            </div>
+                        </div>
+
+                        <div id="shipping-info">
+                            <br>
+                            <h3>Envio:</h3>
+                            <hr>
+                            <div class="form-field">
+                                <input class="form-control" type="text" name="pais" placeholder="Pais..">
+                            </div>
+                            <div class="form-field">
+                                <input class="form-control" type="text" name="ciudad" placeholder="Ciudad..">
+                            </div>
+                            <div class="form-field">
+                                <input class="form-control" type="text" name="comuna" placeholder="Comuna..">
+                            </div>
+                            <div class="form-field">
+                                <input class="form-control" type="text" name="direccion" placeholder="Direccion..">
+                            </div>
+                            <div class="form-field">
+                                <input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
+                            </div>
+                        </div>
+
+                        <div id="payment-info">
+                            <br>
+                            <h3>Tarjeta:</h3>
+                            <hr>
+                            <div class="form-field">
+                                <input class="form-control" type="number" name="numeroTarjeta" placeholder="Numero Tarjeta..">
+                            </div>
+                            <div class="form-field">
+                                <input class="form-control" type="text" name="nombreTitular" placeholder="Nombre Titular..">
+                            </div>
+                            <div class="form-field">
+                                <input class="form-control" type="text" name="fechaCaducidad" placeholder="Año/Mes">
+                            </div>
+                            <div class="form-field">
+                                <input class="form-control" type="number" name="codigoCvc" placeholder="Codigo CVC..">
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="/frontend/static/assets/img/shoppay.png" alt="" class="img-thumbnail">
+                        </div>
+                        <div class="col-4">
+                            <img src="/frontend/static/assets/img/amazonpay.png" alt="" class="img-thumbnail">
+                        </div>
+                        <div class="col-4">
+                            <img src="/frontend/static/assets/img/paypal.png" alt="" class="img-thumbnail">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="box-element">
+                    <br>
+                    <h3>Resumen del pedido:</h3>
+                    <hr>
+                    
+                    <div id="cartItemsDiv">
+                        <!-- Aquí se llenará dinámicamente con los productos del carrito -->
+                    </div>
+
+                    <h5>x<strong id="totalItems">0</strong></h5>
+                    <h5><strong>$<span id="totalPrice">0.00</span></strong></h5>
+                    <input id="form-button" class="btn btn-success checkout-btn" type="submit" value="Pagar">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <div>
+                <div>Copyright &copy; BiblioWeb 2024</div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="/frontend/static/javascript/checkout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        function clearLocalStorage() {
+            localStorage.clear();
+        }
+
+        document.getElementById('logout-link').addEventListener('click', clearLocalStorage);
+    });
+    </script>
+</body>
+</html>
